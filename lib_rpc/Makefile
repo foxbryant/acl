@@ -82,9 +82,10 @@ ifneq ($(SYSPATH),)
 endif
 ###########################################################
 
-OBJ_PATH_DST = ./Debug
-LIB_PATH_DST = .
-DEF_PATH_DST = ./Debug
+OUT_PATH = .
+OBJ_PATH_DST = $(OUT_PATH)/Debug
+LIB_PATH_DST = $(OUT_PATH)/lib
+DEF_PATH_DST = $(OUT_PATH)/Debug
 
 CFLAGS += -I./include -I../lib_acl_cpp/include -I../lib_acl/include -I../include
 
@@ -101,6 +102,7 @@ DATE_NOW = 20`date +%y`.`date +%m`.`date +%d`
 all: static
 
 $(shell mkdir -p $(DEF_PATH_DST))
+$(shell mkdir -p $(LIB_PATH_DST))
 ifneq ($(MAKECMDGOALS),clean)
 -include $(OBJS_DEF)
 endif

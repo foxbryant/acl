@@ -93,7 +93,7 @@ BASE_PATH  = .
 INC_PATH_SRC = $(BASE_PATH)/include
 SRC_PATH_SRC = $(BASE_PATH)/src
 
-INC_COMPILE  = -I$(INC_PATH_SRC) -I./cdb/include -I./tc/include
+INC_COMPILE  = -I$(INC_PATH_SRC) -I./cdb/include -I./tc/include -I./bdb/include
 CFLAGS += $(INC_COMPILE) -DHAS_BDB
 #CFLAGS += $(INC_COMPILE)
 #CFLAGS += $(INC_COMPILE) -DHAS_DB -DHAS_TC -DHAS_CDB
@@ -121,6 +121,7 @@ COMPILE = $(CC) $(CFLAGS)
 all: $(LIB_NAME)
 
 $(shell mkdir -p $(OBJ_PATH_DST))
+$(shell mkdir -p $(LIB_PATH_DST))
 
 $(LIB_NAME): $(OBJS_DST)
 	$(AR) $(ARFL) $(LIB_PATH_DST)/$(LIB_NAME) $(OBJS_DST)
